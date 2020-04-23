@@ -14,17 +14,13 @@ const renderProduct = (title="Не указано", price=1) => {
 };
 
 const renderProducts = (list) => {
-   let productList;
+   let productList  =[];
    productList = list.map((good) => {
     return renderProduct(good.title, good.price);
    });
-  productList  = productList.join(' ');
   console.log(productList);
-  document.querySelector('.products').innerHTML = productList;
+  document.querySelector('.products').innerHTML = productList.join(' ');
 
 };
-
-
-
 
 renderProducts(products);
