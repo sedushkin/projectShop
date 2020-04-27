@@ -1,4 +1,4 @@
-
+'use strict';
 
 class ProductList {
     constructor(container = '.products') {
@@ -65,7 +65,7 @@ class ProductItem {
 class ListCart {
 
 
-    
+
 }
 
 class ProductInCart {
