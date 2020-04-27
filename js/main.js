@@ -29,12 +29,12 @@ class ProductList {
         }
     }
     _totalCartPrice() {
-        let totalPrice = document.getElementById('#totalPrice');
+        let totalPrice = document.querySelector('.total');
         let summary = 0;
         this.goods.forEach(good => {
             summary += good.price;
         });
-        totalPrice.innerHTML = `${summary}`;
+        totalPrice.innerText = `${summary}`;
 
     }
 
