@@ -5,7 +5,7 @@ const products = [
   {id: 4, title: 'Gamepad', price: 4500},
 ];
 
-const renderProduct = (title, price) => {
+const renderProduct = (title="Не указано", price=1) => {
   return `<div class="product-item">
             <h3>${title}</h3>
             <p>${price}</p>
@@ -14,15 +14,13 @@ const renderProduct = (title, price) => {
 };
 
 const renderProducts = (list) => {
-  // const productList = list.map((good) => {
-  //   return renderProduct(good.title, good.price);
-  // });
-  const productList = [];
-  list.forEach(good => {
-    productList.push(renderProduct(good.title, good.price));
-  });
+   let productList  =[];
+   productList = list.map((good) => {
+    return renderProduct(good.title, good.price);
+   });
   console.log(productList);
-  document.querySelector('.products').innerHTML = productList;
+  document.querySelector('.products').innerHTML = productList.join(' ');
+
 };
 
 renderProducts(products);
