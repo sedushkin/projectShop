@@ -22,3 +22,29 @@ function replacer(str,literal,toReplace) {
     return console.log(str.replace(new RegExp(literal,'g'),toReplace));
 }
 replacer(str,literal,toReplace);
+
+
+// простая валидация формы обратной связи
+
+function validate() {
+    let namePattern = /\S+[А-яа-я]/;
+    let phonePattern = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/;
+    let emailPattern = /\S+@[a-z]+.[a-z]+/;
+    document.getElementById('name').className = '';
+    let name = document.forms['form'] ['name'].value;
+    if (namePattern.test(name) === false) {
+        document.getElementById('name').className = 'red';
+        document.getElementById('error').className ='';
+    } else console.log('name - PASS');
+    let phone = document.forms['form'] ['phone'].value;
+    if (phonePattern.test(phone) === false) {
+        document.getElementById('phone').className = 'red';
+        document.getElementById('error').className ='';
+    } else console.log('phone -PASS');
+    let email = document.forms['form'] ['email'].value;
+    if (emailPattern.test(email) === false) {
+        document.getElementById('email').className = 'red';
+        document.getElementById('error').className ='';
+    } else console.log('email - PASS');
+}
+document.querySelector('.submitButton').addEventListener('click', validate);

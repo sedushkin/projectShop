@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
+<form name="form" action="#"">
+<fieldset>
+    <label for="name">Имя</label>
+    <input id="name" placeholder="Иван">
+    <br>
+    <label for="phone">Телефон</label>
+    <input id="phone" placeholder="+7-903-955-55-55" >
+    <br>
+    <label for="email">Email</label>
+    <input id="email" placeholder="email@server.com">
+    <br>
+    <label for="comments">Свободный текст</label>
+    <textarea id="comments"></textarea>
+    <p id="error" class="invisible">Вы ввели недопустимые значения</p>
+</fieldset>
+    <input type="submit" class="submitButton">
 
+</form>
 <script src="quotesReplace.js"></script>
 </body>
 </html>
