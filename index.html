@@ -4,14 +4,53 @@
     <meta charset="UTF-8">
     <title>Интернет-магазин</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/normalize.css">
+
 </head>
 <body>
 <header class="header">
-    <button class="btn-cart" type="button">Корзина</button>
+    <div class="topMenu center">
+        <nav class="navmenu">
+            <div class="headerCart">
+                <button class="btn-cart" type="button">Корзина</button>
+                <div class="dropCart invisible"></div>
+<!--                <details class="basket">-->
+<!--                    <summary> <button class="btn-cart" type="button">Корзина</button> </summary>-->
+<!--                    <div class="dropCart">-->
+<!--                        <table class="table table-hover">-->
+<!--                            <thead>-->
+<!--                            <tr>-->
+<!--                                <th>Название</th>-->
+<!--                                <th>Цена</th>-->
+<!--                                <th>Количество</th>-->
+<!--                                <th>Удалить</th>-->
+<!--                            </tr>-->
+<!--                            </thead>-->
+<!--                            <tbody></tbody>-->
+<!--                            <tfoot>-->
+<!--                            <tr>-->
+<!--                                <th>Итого:</th>-->
+<!--                                <td>-->
+<!--                                    <span class="total" id="totalPrice">0</span>-->
+<!--                                    <i class="fas fa-ruble-sign"></i>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                            </tfoot>-->
+<!--                        </table>-->
+
+<!--                    </div>-->
+<!--                </details>-->
+            </div>
+
+
+        </nav>
+    </div>
 </header>
 <main>
     <div class="products featured center"></div>
+
 </main>
+<!--<script src="https://kit.fontawesome.com/33a67843eb.js" crossorigin="anonymous"></script>-->
 <script src="./js/main.js"></script>
 </body>
 </html>
