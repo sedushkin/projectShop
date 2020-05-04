@@ -16,8 +16,9 @@ let str = "One: 'Hi Mary.' Two: 'Oh, hi.'\n" +
     "One: 'That's great. Well, you better get going. You don't want to be late.'\n" +
     "Two: 'I'll see you next time.'\n" +
     "One: 'Sure.' Bye.'";
-function replacer(str) {
-    return console.log(str.replace(new RegExp("'",'g'),"\""));
-
+let literal = /\'(?!m|s|ll|t)/;
+let toReplace = "\"";
+function replacer(str,literal,toReplace) {
+    return console.log(str.replace(new RegExp(literal,'g'),toReplace));
 }
-replacer(str);
+replacer(str,literal,toReplace);
