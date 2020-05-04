@@ -8,6 +8,7 @@ class ProductList {
         this._fetchProducts();
         this._render();
         this._totalCartPrice();
+
     }
 
     _fetchProducts() {
@@ -63,19 +64,59 @@ class ProductItem {
 
 
 class ListCart {
+    constructor(busketContainer = '.dropCart') {
+        this.busketContainer = busketContainer;
+        this.goods = [];
+        this.allProducts = [];
+        this._getGoodsToBusket();
+    }
+    _getGoodsToBusket(){
+        let basketBtns = document.querySelectorAll('.buy-btn');
+        basketBtns.forEach(function (btn) {
+            btn.addEventListener('click', function (event) {
+                let price = event.srcElement.dataset.price;
+                let name = event.srcElement.dataset.name;
+                this.goods({ price: price, name: name })
+            })
+        });
+    }
+    _removeGoodsFromBusket() {
+
+    }
+
+
+    _render() {
+
+    }
 
 
 
 }
 
 class ProductInCart {
+    constructor(product) {
+        this.title = product.title;
+        this.price = product.price;
+        this.id = product.id;
 
+    }
+
+    render() {
+        return `<div class="product-item" data-id="${this.id}">
+                <img src="${this.img}" alt="Some img">
+                <div class="desc">
+                    <h3>${this.title}</h3>
+                    <p>${this.price} \u20bd</p>
+                    <button class="buy-btn">Купить</button>
+                </div>
+            </div>`;
+    }
 }
 
 
 
 new ProductList();
-
+new ListCart();
 
 
 
