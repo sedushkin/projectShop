@@ -242,7 +242,6 @@ class Cart extends List {
                         };
                         this.goods = [product];
                        this._render();
-
                     }
                 } else {
                     alert('Error');
@@ -323,9 +322,6 @@ let products = new ProductList (cart);
 
 //new ProductList();
 //new ListCart();
-
-
-
 // const products = [
 //   {id: 1, title: 'Notebook', price: 20000},
 //   {id: 2, title: 'Mouse', price: 1500},
