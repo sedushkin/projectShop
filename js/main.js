@@ -36,6 +36,8 @@ const app = new Vue({
                 }
             });
     },
+
+
     computed: {
         getfilter(searchLine){
             const regexp = new RegExp(searchLine, 'i');
