@@ -1,39 +1,9 @@
 'use strict';
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
-// let getRequest = (url) => {
-//     return new Promise( (resolve, reject) => {
-//         let xhr = new XMLHttpRequest();
-//         xhr.open("GET", url, true);
-//         xhr.onreadystatechange = () => {
-//             if (xhr.readyState ===4) {
-//                 if (xhr.status !==200) {
-//                     reject ('Error');
-//                 } else {
-//                     resolve (xhr.responseText);
-//                 }
-//             }
-//
-//         };
-//         xhr.send();
-//         }
-//     )
-// };
 
-// let getRequest = (url, cb) => {
-//     let xhr = new XMLHttpRequest();
-//     xhr.open('GET', url, true);
-//     xhr.onreadystatechange = () => {
-//         if (xhr.readyState === 4) {
-//             if (xhr.status !== 200) {
-//                 console.log('Error');
-//             } else {
-//                 cb(xhr.responseText);
-//             }
-//         }
-//     };
-//     xhr.send();
-// };
+
+
 
 
 class List {
@@ -44,34 +14,8 @@ class List {
         this.url = url;
         this.list = list;
         this._init();
-
-       // // this._fetchProducts();
-       //  this._render();
-       //  //this._totalCartPrice();
-       //  this._getProducts()
-       //      .then(data => {
-       //          this.goods = [...data];
-       //          this._render();
-       //      })
-
     }
 
-    // _fetchProducts() {
-    //     this.goods = [
-    //         {id: 1, title: 'Notebook', price: 20000},
-    //         {id: 2, title: 'Mouse', price: 1500},
-    //         {id: 3, title: 'Keyboard', price: 5000},
-    //         {id: 4, title: 'Gamepad', price: 4500},
-    //     ]
-    // }
-
-    // _getProducts() {
-    //     return fetch(`${API}/catalogData.json`)
-    //         .then(response => response.json())
-    //         .catch(error => {
-    //             console.log(error);
-    //         });
-    // }
     getJson(url){
         return fetch(url ? url : `${API + this.url}`)
             .then(result => result.json())
@@ -95,19 +39,9 @@ class List {
         }
     }
     calcSum() {
-        // return this.goods.reduce((sum, good) => sum + good.price, 0);
+
         return this.allProducts.reduce((accum, item) => accum += item.price, 0);
     }
-    // _totalCartPrice() {
-    //     let totalPrice = document.querySelector('.total');
-    //     let summary = 0;
-    //     this.goods.forEach(good => {
-    //         summary += good.price;
-    //     });
-    //     totalPrice.innerText = `${summary}`;
-    //
-    // }
-
 
 }
 
@@ -121,67 +55,11 @@ class Item {
 
     render() {
         return ``;
-        // return `<div class="product-item" data-id="${this.id}">
-        //         <img src="${this.img}" alt="Some img">
-        //         <div class="desc">
-        //             <h3>${this.title}</h3>
-        //             <p>${this.price} \u20bd</p>
-        //             <button class="buy-btn">Купить</button>
-        //         </div>
-        //     </div>`;
+
     }
 }
 
 
-// class ListCart {
-//     constructor(busketContainer = '.dropCart') {
-//         this.busketContainer = busketContainer;
-//         this.goods = [];
-//         this.allProducts = [];
-//         this._getGoodsToBusket();
-//     }
-//     _getGoodsToBusket(){
-//         let basketBtns = document.querySelectorAll('.buy-btn');
-//         basketBtns.forEach(function (btn) {
-//             btn.addEventListener('click', function (event) {
-//                 let price = event.srcElement.dataset.price;
-//                 let name = event.srcElement.dataset.name;
-//                 this.goods({ price: price, name: name })
-//             })
-//         });
-//     }
-//     _removeGoodsFromBusket() {
-//
-//     }
-//
-//
-//     _render() {
-//
-//     }
-//
-//
-//
-// }
-//
-// class ProductInCart {
-//     constructor(product) {
-//         this.title = product.title;
-//         this.price = product.price;
-//         this.id = product.id;
-//
-//     }
-//
-//     render() {
-//         return `<div class="product-item" data-id="${this.id}">
-//                 <img src="${this.img}" alt="Some img">
-//                 <div class="desc">
-//                     <h3>${this.title}</h3>
-//                     <p>${this.price} \u20bd</p>
-//                     <button class="buy-btn">Купить</button>
-//                 </div>
-//             </div>`;
-//     }
-// }
 
 class ProductList extends List{
     constructor(cart, container = '.products', url = "/catalogData.json") {
@@ -320,31 +198,4 @@ let products = new ProductList (cart);
 
 
 
-//new ProductList();
-//new ListCart();
-// const products = [
-//   {id: 1, title: 'Notebook', price: 20000},
-//   {id: 2, title: 'Mouse', price: 1500},
-//   {id: 3, title: 'Keyboard', price: 5000},
-//   {id: 4, title: 'Gamepad', price: 4500},
-// ];
-//
-// const renderProduct = (title="Не указано", price=1) => {
-//   return `<div class="product-item">
-//             <h3>${title}</h3>
-//             <p>${price}</p>
-//             <button class="by-btn">Добавить в корзину</button>
-//           </div>`;
-// };
-//
-// const renderProducts = (list) => {
-//    let productList  =[];
-//    productList = list.map((good) => {
-//     return renderProduct(good.title, good.price);
-//    });
-//   console.log(productList);
-//   document.querySelector('.products').innerHTML = productList.join(' ');
-//
-// };
-//
-// renderProducts(products);
+
