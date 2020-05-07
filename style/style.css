@@ -123,3 +123,6 @@
 .del-btn {
 
 }
+.isVisible {
+    display: none;
+}

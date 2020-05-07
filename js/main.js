@@ -8,10 +8,18 @@ const app = new Vue({
     data: {
         catalogUrl: '/catalogData.json',
         products: [],
+        inBasket: [],
+        filtered:[],
         imgCatalog: 'img/',
         isVisible: false,
         searchLine: '',
         searchVisible: true,
+        id_product: '',
+        quantity: 0,
+        price: '',
+
+
+
 
     },
     methods: {
@@ -23,8 +31,47 @@ const app = new Vue({
                 })
         },
         addProduct(product){
+            let Basket;
+            let quantity = 1;
+            this.products.forEach(function (isProduct) {
+                if (product.id_product == isProduct.id_product) {
+                    Basket = {
+                        id_product:isProduct.id,
+                        product_name: isProduct.product_name,
+                        price: isProduct.price,
+                        img: isProduct.img,
 
+                    }
+
+                }
+
+            });
+            this.inBasket.push(Basket);
+            this.generateBasket();
             console.log(product.id_product);
+        },
+
+        // deleteProduct(product) {
+        //     let element;
+        //     this.inBasket.forEach(function(isProduct,i) {
+        //         let id = isProduct.id_product;
+        //         if (product.product_id == id) {
+        //             element = i;
+        //         }
+        //     });
+        //         this.inBasket.splice(element, 1);
+        //         this.generateBasket();
+        //
+        // },
+
+        generateBasket() {
+            let totalPrice =0;
+            this.inBasket.forEach((product) => {
+                if (product.price !== undefined) {
+                    totalPrice +=product.price;
+                }
+            });
+            this.totalPrice = totalPrice;
         }
     },
 
@@ -42,14 +89,8 @@ const app = new Vue({
         getfilter(){
             const regexp = new RegExp(this.searchLine, 'i');
             this.filtered = this.products.filter(product => regexp.test(product.product_name));
-            this.products.forEach(el => {
-                const block = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
-                if(!this.filtered.includes(el)){
-                    this.searchVisible=true;
-                } else {
-                    this.searchVisible=false;
-                }
-            })
+            this.products = this.filtered;
+
         },
 
 
