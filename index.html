@@ -14,7 +14,7 @@
 
                 <form action="#" class="search-form">
                     <input type="text" class="search-field" v-model="searchLine" placeholder="поиск...">
-                    <button class="btn-search" type="submit" @click="getfilter(searchLine)">
+                    <button class="btn-search" type="submit" @click="getfilter()">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
@@ -51,6 +51,7 @@
                     <h3>{{product.product_name}}</h3>
                     <p>{{product.price}}₽</p>
                     <button class="buy-btn" @click="addProduct(product)">Купить</button>
+                <div v-if="products.lenght == 0">Нет данных</div>
                 </div>
             </div>
 

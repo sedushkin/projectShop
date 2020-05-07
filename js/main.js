@@ -39,8 +39,8 @@ const app = new Vue({
 
 
     computed: {
-        getfilter(searchLine){
-            const regexp = new RegExp(searchLine, 'i');
+        getfilter(){
+            const regexp = new RegExp(this.searchLine, 'i');
             this.filtered = this.products.filter(product => regexp.test(product.product_name));
             this.products.forEach(el => {
                 const block = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
