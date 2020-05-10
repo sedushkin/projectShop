@@ -17,10 +17,6 @@ const app = new Vue({
         id_product: '',
         quantity: 0,
         price: '',
-
-
-
-
     },
     methods: {
         getJson(url){
