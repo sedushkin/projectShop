@@ -7,7 +7,6 @@ const app = new Vue({
     data: {
         searchLine: '',
         searchVisible: true,
-
     },
     methods: {
         getJson(url){

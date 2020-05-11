@@ -3,16 +3,11 @@ Vue.component ('products', {
     data() {
         return {
             catalogUrl: '/catalogData.json',
-            imgCatalog: '/img/1.jpg',
+            imgCatalog: 'https://placehold.it/200x150',
             products: [],
             id_product: '',
             price: '',
-
-
         };
-    },
-    methods: {
-
     },
 
     mounted(){
@@ -23,8 +18,6 @@ Vue.component ('products', {
                     this.$root.$refs.search.filtered.push(el);
                 }
             });
-        // this.filtered = this.products;
-
     },
 
     template: ` <div class="products featured center">

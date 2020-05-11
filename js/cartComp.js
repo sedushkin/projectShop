@@ -2,7 +2,7 @@ Vue.component ('cart', {
     data(){
         return {
             cartUrl: '/getBasket.json',
-            imgCatalog: '/img/1.jpg',
+            imgCatalog: 'https://placehold.it/50x100',
             inBasket: [],
             isVisible: false,
             totalPrice: '',
